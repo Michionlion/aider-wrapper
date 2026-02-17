@@ -1,0 +1,12 @@
+src/**
+test/**
+**/*.ts
+vitest.config.ts
+tsconfig.json
+eslint.config.js
+esbuild.mjs
+.github/**
+.yarn/**
+.gitignore
+.yarnrc.yml
+yarn.lock

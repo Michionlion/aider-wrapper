@@ -1,0 +1,71 @@
+{
+  "name": "aider-wrapper",
+  "displayName": "Aider Wrapper",
+  "description": "A minimal VSCode extension to interact with Aider inside VSCode easily",
+  "version": "0.0.1",
+  "publisher": "michionlion",
+  "license": "MIT",
+  "preview": true,
+  "repository": "michionlion/aider-wrapper",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "aider",
+    "local",
+    "llm",
+    "ai",
+    "agent"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "aiderWrapper.focusChatPanel",
+        "title": "Aider Wrapper: Focus Chat Panel"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "aiderWrapper",
+          "title": "Aider",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "aiderWrapper": [
+        {
+          "id": "aiderWrapper.chatPanel",
+          "name": "Chat",
+          "icon": "media/icon.svg"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "package": "vsce package --no-dependencies",
+    "verify": "yarn lint && yarn typecheck && yarn test --run && yarn build && yarn package",
+    "vs-install": "yarn package && code --install-extension ./aider-wrapper-*.vsix"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.24",
+    "@types/vscode": "^1.90.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "@vscode/vsce": "^3.6.2",
+    "esbuild": "^0.25.1",
+    "eslint": "^9.22.0",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
+  },
+  "packageManager": "yarn@4.12.0"
+}
